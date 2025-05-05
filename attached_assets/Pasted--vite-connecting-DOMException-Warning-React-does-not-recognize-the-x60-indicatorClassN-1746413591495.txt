@@ -1,0 +1,48 @@
+[vite] connecting...
+DOMException {}
+
+Warning: React does not recognize the &#x60;indicatorClassName&#x60; prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase &#x60;indicatorclassname&#x60; instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+    at div
+    at https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=20e85ece:42:13
+    at Provider (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=20e85ece:38:15)
+    at https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-progress.js?v=20e85ece:30:7
+    at _c (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/components/ui/progress.tsx:21:11)
+    at div
+    at div
+    at div
+    at CategoryProgress (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/components/category-progress.tsx:20:36)
+    at div
+    at Categories (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/pages/categories.tsx:72:21)
+    at Route (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=20e85ece:280:16)
+    at Switch (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=20e85ece:336:17)
+    at main
+    at div
+    at div
+    at Router (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/App.tsx?t=1746413520562&v=Fhs2qJnUcQm77E0iNvoHt:36:22)
+    at QueryClientProvider (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=20e85ece:2875:3)
+    at ThemeProvider (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/components/ui/theme-provider.tsx:25:3)
+    at App (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/App.tsx?t=1746413520562&v=Fhs2qJnUcQm77E0iNvoHt:120:31)
+at div
+at https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-AXMZZQ2X.js?v=20e85ece:42:13
+at Provider (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-OXZDJRWN.js?v=20e85ece:38:15)
+at https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-progress.js?v=20e85ece:30:7
+at _c (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/components/ui/progress.tsx:21:11)
+at div
+at div
+at div
+at CategoryProgress (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/components/category-progress.tsx:20:36)
+at div
+at Categories (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/pages/categories.tsx:72:21)
+at Route (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=20e85ece:280:16)
+at Switch (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=20e85ece:336:17)
+at main
+at div
+at div
+at Router (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/App.tsx?t=1746413520562&amp;v=Fhs2qJnUcQm77E0iNvoHt:36:22)
+at QueryClientProvider (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=20e85ece:2875:3)
+at ThemeProvider (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/components/ui/theme-provider.tsx:25:3)
+at App (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/src/App.tsx?t=1746413520562&amp;v=Fhs2qJnUcQm77E0iNvoHt:120:31)
+at t.value (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://7434ac0f-31da-4f91-8fc3-db972c9ac241-00-1e26o4w213axt.janeway.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400

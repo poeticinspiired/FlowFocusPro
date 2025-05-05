@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Progress } from "@/components/ui/progress";
+import { cn } from "@/lib/utils";
 
 interface CategoryProgressProps {
   userId: number;
@@ -52,18 +52,21 @@ export function CategoryProgress({ userId }: CategoryProgressProps) {
                   {item.completedTasks}/{item.totalTasks} tasks
                 </span>
               </div>
-              <Progress 
-                value={item.percentage} 
-                className="h-2" 
-                // Use different colors based on category
-                indicatorClassName={
-                  item.category.name.toLowerCase().includes('work') ? "bg-primary-500" :
-                  item.category.name.toLowerCase().includes('personal') ? "bg-secondary-400" :
-                  item.category.name.toLowerCase().includes('spiritual') ? "bg-accent-400" :
-                  item.category.name.toLowerCase().includes('health') ? "bg-red-400" :
-                  "bg-primary-500"
-                }
-              />
+              <div 
+                className="relative h-2 w-full overflow-hidden rounded-full bg-secondary"
+              >
+                <div
+                  className={cn(
+                    "h-full flex-1 transition-all",
+                    item.category.name.toLowerCase().includes('work') ? "bg-primary-500" :
+                    item.category.name.toLowerCase().includes('personal') ? "bg-secondary-400" :
+                    item.category.name.toLowerCase().includes('spiritual') ? "bg-accent-400" :
+                    item.category.name.toLowerCase().includes('health') ? "bg-red-400" :
+                    "bg-primary-500"
+                  )}
+                  style={{ width: `${item.percentage}%` }}
+                />
+              </div>
             </div>
           ))}
         </div>
