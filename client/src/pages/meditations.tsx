@@ -162,12 +162,12 @@ export default function Meditations() {
                             <Clock className="h-4 w-4 mr-1" />
                             {formatDuration(meditation.duration)}
                           </div>
-                          <Badge className={getDifficultyColor(meditation.difficulty)}>
-                            {meditation.difficulty.charAt(0).toUpperCase() + meditation.difficulty.slice(1)}
+                          <Badge className={getDifficultyColor(meditation.difficulty || 'beginner')}>
+                            {meditation.difficulty ? meditation.difficulty.charAt(0).toUpperCase() + meditation.difficulty.slice(1) : 'Beginner'}
                           </Badge>
                           <Badge variant="outline" className="flex items-center">
-                            {getTypeIcon(meditation.type)}
-                            {meditation.type.charAt(0).toUpperCase() + meditation.type.slice(1)}
+                            {getTypeIcon(meditation.type || 'anytime')}
+                            {meditation.type ? meditation.type.charAt(0).toUpperCase() + meditation.type.slice(1) : 'Anytime'}
                           </Badge>
                         </div>
                       </div>
