@@ -31,17 +31,23 @@ function Router() {
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header toggleSidebar={toggleSidebar} currentPath={location} />
         
-        <main className="flex-1 overflow-auto bg-neutral-50 p-4 sm:p-6 lg:p-8">
-          <Switch>
-            <Route path="/" component={Dashboard} />
-            <Route path="/tasks" component={Tasks} />
-            <Route path="/categories" component={Categories} />
-            <Route path="/journals" component={Journals} />
-            <Route path="/focus-mode" component={FocusMode} />
-            <Route path="/meditations" component={Meditations} />
-            <Route path="/affirmations" component={Affirmations} />
-            <Route component={NotFound} />
-          </Switch>
+        <main className="flex-1 overflow-auto p-4 sm:p-6 lg:p-8">
+          {/* Add a decorative gradient orb - Silicon Valley design element */}
+          <div className="fixed top-[15%] right-[10%] w-64 h-64 rounded-full bg-primary opacity-5 blur-3xl pointer-events-none"></div>
+          <div className="fixed bottom-[20%] left-[5%] w-96 h-96 rounded-full bg-secondary opacity-5 blur-3xl pointer-events-none"></div>
+          
+          <div className="relative z-10">
+            <Switch>
+              <Route path="/" component={Dashboard} />
+              <Route path="/tasks" component={Tasks} />
+              <Route path="/categories" component={Categories} />
+              <Route path="/journals" component={Journals} />
+              <Route path="/focus-mode" component={FocusMode} />
+              <Route path="/meditations" component={Meditations} />
+              <Route path="/affirmations" component={Affirmations} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
         </main>
       </div>
     </div>
