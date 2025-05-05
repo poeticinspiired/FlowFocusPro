@@ -111,7 +111,7 @@
   
   .loader {
     @apply rounded-full border-2 border-t-2 border-neutral-200;
-    border-top-color: theme('colors.primary.500');
+    border-top-color: hsl(var(--primary));
     animation: spinner 1.5s linear infinite;
   }
   
