@@ -164,13 +164,19 @@ export function TaskForm({ userId, taskToEdit, onSuccess }: TaskFormProps) {
   
   // Handle form submission
   function onSubmit(data: FormValues) {
+    // Convert string dueDate to Date if it exists
+    const formattedData = {
+      ...data,
+      dueDate: data.dueDate ? new Date(data.dueDate) : undefined
+    };
+    
     if (isEditing) {
       updateTaskMutation.mutate({
         id: taskToEdit.id,
-        ...data,
+        ...formattedData,
       });
     } else {
-      createTaskMutation.mutate(data);
+      createTaskMutation.mutate(formattedData);
     }
   }
   

@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { 
   LayoutDashboard, 
@@ -99,21 +99,23 @@ interface NavLinkProps {
 }
 
 function NavLink({ to, icon, label }: NavLinkProps) {
+  // Get current location to determine if the link is active
+  const [location] = useLocation();
+  const isActive = location === to;
+  
   return (
     <Link href={to}>
-      {({ isActive }) => (
-        <a 
-          className={cn(
-            "flex items-center p-3 rounded-lg",
-            isActive 
-              ? "text-primary-500 bg-primary-50 font-medium" 
-              : "text-neutral-700 hover:bg-neutral-100"
-          )}
-        >
-          {icon}
-          {label}
-        </a>
-      )}
+      <div 
+        className={cn(
+          "flex items-center p-3 rounded-lg cursor-pointer",
+          isActive 
+            ? "text-primary-500 bg-primary-50 font-medium" 
+            : "text-neutral-700 hover:bg-neutral-100"
+        )}
+      >
+        {icon}
+        {label}
+      </div>
     </Link>
   );
 }

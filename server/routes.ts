@@ -31,7 +31,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         // Handle authentication message to associate websocket with user
         if (data.type === 'AUTH' && data.userId) {
           userId = data.userId;
-          activeConnections.set(userId, ws);
+          if (userId !== null) {
+            activeConnections.set(userId, ws);
+          }
           
           // Send confirmation
           ws.send(JSON.stringify({
