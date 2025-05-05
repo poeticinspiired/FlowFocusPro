@@ -84,7 +84,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   app.post(`${apiPrefix}/tasks`, async (req, res) => {
     try {
-      const validatedData = insertTaskSchema.parse(req.body);
+      // Extract and process the request body
+      const requestData = {...req.body};
+      
+      // Convert string dueDate to Date if it exists
+      if (requestData.dueDate && typeof requestData.dueDate === 'string') {
+        try {
+          requestData.dueDate = new Date(requestData.dueDate);
+        } catch (e) {
+          console.error('Error converting dueDate:', e);
+          requestData.dueDate = null;
+        }
+      }
+      
+      const validatedData = insertTaskSchema.parse(requestData);
       
       // If AI priority is requested, calculate it
       if (validatedData.priority === 'ai') {
@@ -125,8 +138,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ error: 'Task not found' });
       }
       
+      // Extract and process the request body
+      const requestData = {...req.body};
+      
+      // Convert string dueDate to Date if it exists
+      if (requestData.dueDate && typeof requestData.dueDate === 'string') {
+        try {
+          requestData.dueDate = new Date(requestData.dueDate);
+        } catch (e) {
+          console.error('Error converting dueDate:', e);
+          requestData.dueDate = null;
+        }
+      }
+      
       const validatedData = updateTaskSchema.parse({
-        ...req.body,
+        ...requestData,
         id: taskId
       });
       
