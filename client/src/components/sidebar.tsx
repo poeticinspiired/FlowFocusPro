@@ -28,21 +28,25 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
   return (
     <aside 
       className={cn(
-        "bg-white border-r border-neutral-200 flex-shrink-0 h-auto md:h-screen overflow-auto transition-all duration-300 z-20",
-        isMobile ? (isOpen ? "w-full fixed inset-0" : "hidden") : "w-64"
+        "bg-sidebar-background text-sidebar-foreground border-r border-sidebar-border flex-shrink-0 h-auto md:h-screen overflow-auto transition-all duration-300 z-20",
+        isMobile ? (isOpen ? "w-full fixed inset-0" : "hidden") : "w-72"
       )}
     >
-      <div className="p-5 border-b border-neutral-200">
-        <div className="flex items-center space-x-3">
-          <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd"></path>
-          </svg>
-          <h1 className="text-xl font-semibold text-neutral-900">FlowFocus</h1>
+      <div className="p-6 border-b border-sidebar-border relative overflow-hidden">
+        <div className="relative z-10 flex items-center space-x-3">
+          {/* Logo with gradient effect */}
+          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary text-white">
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd"></path>
+            </svg>
+          </div>
+          {/* Gradient text for logo */}
+          <h1 className="text-2xl font-bold tech-text-gradient">FlowFocus</h1>
           
           {isMobile && (
             <button 
               onClick={toggleSidebar}
-              className="ml-auto p-2 rounded-md text-neutral-600 hover:text-neutral-900 focus:outline-none"
+              className="ml-auto p-2 rounded-md text-sidebar-foreground hover:bg-sidebar-accent hover:bg-opacity-10 focus:outline-none"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -50,11 +54,14 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
             </button>
           )}
         </div>
-        <p className="text-sm text-neutral-500 mt-1">Spiritual Productivity</p>
+        <p className="text-sm text-muted-foreground mt-1">Next-gen Productivity</p>
+        
+        {/* Decorative orb - Silicon Valley style */}
+        <div className="absolute -right-6 -top-6 w-16 h-16 rounded-full bg-primary opacity-10 blur-xl"></div>
       </div>
       
-      <nav className="p-4">
-        <ul className="space-y-1">
+      <nav className="p-5">
+        <ul className="space-y-2">
           <li>
             <NavLink to="/" icon={<LayoutDashboard className="w-5 h-5 mr-3" />} label="Dashboard" />
           </li>
@@ -72,9 +79,9 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
           </li>
         </ul>
         
-        <div className="mt-8">
-          <h3 className="px-3 text-xs font-semibold text-neutral-500 uppercase tracking-wider">Mindfulness</h3>
-          <ul className="mt-2 space-y-1">
+        <div className="mt-10">
+          <h3 className="px-3 text-xs font-semibold text-sidebar-accent uppercase tracking-wider mb-3">Mindfulness</h3>
+          <ul className="space-y-2">
             <li>
               <NavLink to="/meditations" icon={<Moon className="w-5 h-5 mr-3" />} label="Meditations" />
             </li>
@@ -85,7 +92,7 @@ export default function Sidebar({ isOpen, toggleSidebar }: SidebarProps) {
         </div>
       </nav>
       
-      <div className="p-4 mt-auto border-t border-neutral-200">
+      <div className="p-5 mt-auto border-t border-sidebar-border bg-gradient-to-br from-transparent to-sidebar-accent to-5%">
         <MindfulnessTip />
       </div>
     </aside>
@@ -107,14 +114,32 @@ function NavLink({ to, icon, label }: NavLinkProps) {
     <Link href={to}>
       <div 
         className={cn(
-          "flex items-center p-3 rounded-lg cursor-pointer",
+          "flex items-center py-3 px-4 rounded-xl cursor-pointer transition-all duration-200 relative group",
           isActive 
-            ? "text-primary-500 bg-primary-50 font-medium" 
-            : "text-neutral-700 hover:bg-neutral-100"
+            ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium" 
+            : "text-sidebar-foreground hover:bg-sidebar-accent hover:bg-opacity-10"
         )}
       >
-        {icon}
-        {label}
+        {/* Icon with animation */}
+        <div className={cn(
+          "flex-shrink-0 transition-transform duration-300 group-hover:scale-110",
+          isActive ? "text-sidebar-primary-foreground" : "text-sidebar-accent"
+        )}>
+          {icon}
+        </div>
+        
+        {/* Label with possible gradient effect on active */}
+        <span className={cn(
+          "transition-colors duration-200",
+          isActive && "tech-text-gradient font-semibold"
+        )}>
+          {label}
+        </span>
+        
+        {/* Active indicator - pill */}
+        {isActive && (
+          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-primary to-secondary rounded-r-full"></div>
+        )}
       </div>
     </Link>
   );
